@@ -1,0 +1,39 @@
+{
+  "name": "linked-map",
+  "version": "0.0.0",
+  "description": "A linked map data structure",
+  "homepage": "https://bitbucket.org/troykinsella/linked-map",
+  "author": {
+    "name": "Troy Kinsella",
+    "email": "",
+    "url": ""
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "./lib/linked-map.js",
+  "keywords": [
+    "map",
+    "linked",
+    "list",
+    "list",
+    "queue",
+    "stack",
+    "collection",
+    "structure"
+  ],
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-eslint": "^0.8.0",
+    "gulp-istanbul": "^0.8.1",
+    "gulp-jscs": "^1.1.0",
+    "gulp-jshint": "^1.5.3",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "jshint-stylish": "^1.0.0"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "license": "MIT"
+}
