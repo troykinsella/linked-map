@@ -10,6 +10,8 @@ describe('linked-map', function() {
     assert.strictEqual(null, lm.tailKey());
     assert.strictEqual(null, lm.head());
     assert.strictEqual(null, lm.tail());
+    assert.deepEqual([], lm.keys());
+    assert.deepEqual([], lm.values());
   });
 
   describe('#size', function() {
@@ -110,6 +112,17 @@ describe('linked-map', function() {
       assert.strictEqual('key', lm.tailKey());
     });
 
+    it('should replace duplicates', function() {
+      var lm = new LinkedMap();
+      lm.addToHead('key', 'value');
+      lm.addToHead('key', 'value2');
+      assert.strictEqual('key', lm.headKey());
+      assert.strictEqual('key', lm.tailKey());
+      assert.strictEqual('value2', lm.head());
+      assert.strictEqual('value2', lm.tail());
+      assert.strictEqual(1, lm.size());
+    });
+
   });
 
   describe('#addToTail', function() {
@@ -120,6 +133,17 @@ describe('linked-map', function() {
       lm.addToTail('key2', 'value2');
       assert.strictEqual('key', lm.headKey());
       assert.strictEqual('key2', lm.tailKey());
+    });
+
+    it('should replace duplicates', function() {
+      var lm = new LinkedMap();
+      lm.addToTail('key', 'value');
+      lm.addToTail('key', 'value2');
+      assert.strictEqual('key', lm.headKey());
+      assert.strictEqual('key', lm.tailKey());
+      assert.strictEqual('value2', lm.head());
+      assert.strictEqual('value2', lm.tail());
+      assert.strictEqual(1, lm.size());
     });
 
   });
@@ -242,6 +266,32 @@ describe('linked-map', function() {
       assert.strictEqual(null, lm.get('key2'));
       assert.strictEqual(null, lm.get('key3'));
     });
+  });
+
+  describe('#keys', function() {
+
+    it('should return a list of existing keys in order', function() {
+      var lm = new LinkedMap();
+      lm.addToTail('key2', 'value2');
+      lm.addToHead('key1', 'value1');
+      lm.addToTail('key3', 'value3');
+
+      assert.deepEqual([ 'key1', 'key2', 'key3'], lm.keys());
+    });
+
+  });
+
+  describe('#values', function() {
+
+    it('should return a list of existing values in order', function() {
+      var lm = new LinkedMap();
+      lm.addToTail('key2', 'value2');
+      lm.addToHead('key1', 'value1');
+      lm.addToTail('key3', 'value3');
+
+      assert.deepEqual([ 'value1', 'value2', 'value3'], lm.values());
+    });
+
   });
 
 });

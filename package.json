@@ -4,9 +4,7 @@
   "description": "A linked map data structure",
   "homepage": "https://bitbucket.org/troykinsella/linked-map",
   "author": {
-    "name": "Troy Kinsella",
-    "email": "",
-    "url": ""
+    "name": "Troy Kinsella"
   },
   "files": [
     "lib"
