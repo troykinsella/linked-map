@@ -23,10 +23,10 @@ Copy the distribution linked-map.js file into your project files, and include it
 > var LinkedMap = require('linked-map'); // Node.js
 
 > var map = new LinkedMap();
-> map.addToHead('dogs', 2);
-> map.addToHead('monkeys', 1);
-> map.addToTail('cats', 4);
-> map.addToTail('dogs', 3)
+> map.unshift('dogs', 2);
+> map.unshift('monkeys', 1);
+> map.push('cats', 4);
+> map.push('dogs', 3)
 > map.get('dogs');
 3
 > map.head();
@@ -43,9 +43,9 @@ Copy the distribution linked-map.js file into your project files, and include it
 [ 'monkeys', 'dogs', 'cats' ]
 > map.values()
 [ 1, 3, 4 ]
-> map.removeHead()
+> map.shift()
 1
-> map.removeTail()
+> map.pop()
 4
 > map.clear()
 > map.size()
