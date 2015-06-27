@@ -294,5 +294,145 @@ describe('linked-map', function() {
 
   });
 
+  describe("#nextKey", function() {
+
+    it('should return null when key does not exist', function() {
+      var lm = new LinkedMap();
+      assert.strictEqual(null, lm.nextKey('key1'));
+    });
+
+    it('should return null when no next exists', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      assert.strictEqual(null, lm.nextKey('key1'));
+    });
+
+    it('should return same key when one element and circular', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      assert.strictEqual('key1', lm.nextKey('key1', true));
+    });
+
+    it('should return the next key', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      lm.push('key2', 'value2');
+      assert.strictEqual('key2', lm.nextKey('key1'));
+    });
+
+    it('should return the first key for the last key and circular', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      lm.push('key2', 'value2');
+      assert.strictEqual('key1', lm.nextKey('key2', true));
+    });
+
+  });
+
+  describe("#next", function() {
+
+    it('should return null when key does not exist', function() {
+      var lm = new LinkedMap();
+      assert.strictEqual(null, lm.next('key1'));
+    });
+
+    it('should return null when no next exists', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      assert.strictEqual(null, lm.next('key1'));
+    });
+
+    it('should return same value when one element and circular', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      assert.strictEqual('value1', lm.next('key1', true));
+    });
+
+    it('should return the next value', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      lm.push('key2', 'value2');
+      assert.strictEqual('value2', lm.next('key1'));
+    });
+
+    it('should return the first value for the last key and circular', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      lm.push('key2', 'value2');
+      assert.strictEqual('value1', lm.next('key2', true));
+    });
+
+  });
+
+  describe("#previousKey", function() {
+
+    it('should return null when key does not exist', function() {
+      var lm = new LinkedMap();
+      assert.strictEqual(null, lm.previousKey('key1'));
+    });
+
+    it('should return null when no next exists', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      assert.strictEqual(null, lm.previousKey('key1'));
+    });
+
+    it('should return same key when one element and circular', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      assert.strictEqual('key1', lm.previousKey('key1', true));
+    });
+
+    it('should return the previous key', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      lm.push('key2', 'value2');
+      assert.strictEqual('key1', lm.previousKey('key2'));
+    });
+
+    it('should return the last key for the first key and circular', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      lm.push('key2', 'value2');
+      assert.strictEqual('key2', lm.previousKey('key1', true));
+    });
+
+  });
+
+  describe("#previous", function() {
+
+    it('should return null when key does not exist', function() {
+      var lm = new LinkedMap();
+      assert.strictEqual(null, lm.previous('key1'));
+    });
+
+    it('should return null when no next exists', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      assert.strictEqual(null, lm.previous('key1'));
+    });
+
+    it('should return same value when one element and circular', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      assert.strictEqual('value1', lm.previous('key1', true));
+    });
+
+    it('should return the previous value', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      lm.push('key2', 'value2');
+      assert.strictEqual('value1', lm.previous('key2'));
+    });
+
+    it('should return the last value for the first key and circular', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      lm.push('key2', 'value2');
+      assert.strictEqual('value2', lm.previous('key1', true));
+    });
+
+  });
+
 });
 

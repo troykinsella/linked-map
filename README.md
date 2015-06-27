@@ -26,7 +26,7 @@ Copy the distribution linked-map.js file into your project files, and include it
 > map.unshift('dogs', 2);
 > map.unshift('monkeys', 1);
 > map.push('cats', 4);
-> map.push('dogs', 3)
+> map.push('dogs', 3);
 > map.get('dogs');
 3
 > map.head();
@@ -37,22 +37,28 @@ Copy the distribution linked-map.js file into your project files, and include it
 4
 > map.tailKey();
 'cats'
-> map.size()
+> map.size();
 3
-> map.keys()
+> map.keys();
 [ 'monkeys', 'dogs', 'cats' ]
-> map.values()
+> map.values();
 [ 1, 3, 4 ]
-> map.shift()
+> map.nextKey('cats');
+null
+> map.nextKey('cats', true /* circular */);
+'monkeys'
+> map.previous('dogs');
 1
-> map.pop()
+> map.shift();
+1
+> map.pop();
 4
-> map.clear()
-> map.size()
+> map.clear();
+> map.size();
 0
 ```
 
-Please see the unit tests for more API details.
+Please see the API-documented source code and unit tests for more details.
 
 ## Testing
 ```
