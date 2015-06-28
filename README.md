@@ -71,17 +71,17 @@ Please see source code and unit tests for more details.
 ## Contributing
 
 Project source code is hosted on bitbucket: 
-[home][home-url]
+[home]([home-url])
 
 Git repository:
-[scm][scm-url]
+[scm]([scm-url])
 
 Feel free to submit pull requests!
 
 ### Reporting issues
 
 Browse existing issues, and submit new issues here:
-[issues-url][issues-url]
+[issues-url]([issues-url])
 
 ### Testing
 
