@@ -74,7 +74,7 @@ Please see source code and unit tests for more details.
 ## Contributing
 
 Project source code is hosted on bitbucket: 
-[https://bitbucket.org/troykinsella/linked-map]https://bitbucket.org/troykinsella/linked-map)
+[https://bitbucket.org/troykinsella/linked-map](https://bitbucket.org/troykinsella/linked-map)
 
 Git repository:
 git@bitbucket.org:troykinsella/linked-map.git
