@@ -23,51 +23,77 @@ Copy the distribution linked-map.js file into your project files, and include it
 > var LinkedMap = require('linked-map'); // Node.js
 
 > var map = new LinkedMap();
-> map.unshift('dogs', 2);
+> map.unshift('dogs', 2); // Add an entry to the front of the linked list
 > map.unshift('monkeys', 1);
-> map.push('cats', 4);
+> map.push('cats', 4); // Add an entry to the end of the linked list
 > map.push('dogs', 3);
-> map.get('dogs');
+> map.get('dogs'); // Get the value for a key
 3
-> map.head();
+> map.head(); // Get the first value in the linked list
 1
-> map.headKey();
+> map.headKey(); // Get the first key in the linked list
 'monkeys'
-> map.tail();
+> map.tail(); // Get the last value in the linked list
 4
-> map.tailKey();
+> map.tailKey(); // Get the last key in the linked list
 'cats'
-> map.size();
+> map.size(); // Get the number of entries stored
 3
-> map.keys();
+> map.keys(); // Get an in-order list of keys known to the structure
 [ 'monkeys', 'dogs', 'cats' ]
-> map.values();
+> map.values(); // Get an in-order list of values known to the structure
 [ 1, 3, 4 ]
-> map.nextKey('cats');
+> map.nextKey('cats'); // Get the key following the given key in the linked list, if any
 null
-> map.nextKey('cats', true /* circular */);
+> map.nextKey('cats', true /* circular */); // Get the key following the given key, wrapping to the front if at the end
 'monkeys'
-> map.previous('dogs');
+> map.previous('dogs'); // Get the value of the entry prior to the given key in the linked list, if any
 1
-> map.shift();
+> map.each(function(key, value) { // Iterate the entries in the linked list in order
+  console.log(key + ' = ' + value);
+});
+monkeys = 1
+dogs = 3
+cats = 4
+> map.shift(); // Get and remove the first value in the linked list
 1
-> map.pop();
+> map.pop(); // Get and remove the last value in the linked list
 4
-> map.clear();
-> map.size();
-0
+> map.clear(); // Remove all entries
 ```
+
+## Documentation
+
+API documentation is available in the `docs/` directory 
 
 Please see the API-documented source code and unit tests for more details.
 
-## Testing
+## Contributing
+
+Project source code is hosted on bitbucket: 
+[home-url]
+
+Git repository:
+[scm-url]
+
+Feel free to submit pull requests!
+
+### Testing
 ```
 gulp test
 ```
+
+## Roadmap
+
+* Minified vanilla JavaScript distributable
+* Reverse iteration
+* Performance metrics
 
 ## License
 
 MIT © [Troy Kinsella]()
 
+[scm-url]: git@bitbucket.org:troykinsella/linked-map.git
+[home-url]: https://bitbucket.org/troykinsella/linked-map
 [npm-image]: https://badge.fury.io/js/linked-map.svg
 [npm-url]: https://npmjs.org/package/linked-map

@@ -1,4 +1,5 @@
 .idea
 *.iml
+/docs/
 /node_modules/
 /coverage/
