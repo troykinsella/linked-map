@@ -64,21 +64,28 @@ cats = 4
 
 ## Documentation
 
-API documentation is available in the `docs/` directory 
+API documentation is available in the `docs/` directory of the installed module directory.
 
-Please see the API-documented source code and unit tests for more details.
+Please see source code and unit tests for more details.
 
 ## Contributing
 
 Project source code is hosted on bitbucket: 
-[home-url]
+[home][home-url]
 
 Git repository:
-[scm-url]
+[scm][scm-url]
 
 Feel free to submit pull requests!
 
+### Reporting issues
+
+Browse existing issues, and submit new issues here:
+[issues-url][issues-url]
+
 ### Testing
+
+Verify source code standards and run unit tests:
 ```
 gulp test
 ```
@@ -86,6 +93,7 @@ gulp test
 ## Roadmap
 
 * Minified vanilla JavaScript distributable
+* Publish to bower
 * Reverse iteration
 * Performance metrics
 
@@ -93,6 +101,7 @@ gulp test
 
 MIT © [Troy Kinsella]()
 
+[issues-url]: https://bitbucket.org/troykinsella/linked-map/issues
 [scm-url]: git@bitbucket.org:troykinsella/linked-map.git
 [home-url]: https://bitbucket.org/troykinsella/linked-map
 [npm-image]: https://badge.fury.io/js/linked-map.svg
