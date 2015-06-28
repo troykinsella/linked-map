@@ -2,6 +2,7 @@
 > A linked map data structure for ordered iteration and fast random access.
 
 
+
 ## Install
 
 ### Node.js
@@ -26,7 +27,7 @@ Copy the distribution linked-map.js file into your project files, and include it
 > map.unshift('dogs', 2); // Add an entry to the front of the linked list
 > map.unshift('monkeys', 1);
 > map.push('cats', 4); // Add an entry to the end of the linked list
-> map.push('dogs', 3);
+> map.push('dogs', 3); // Update an existing entry without changing entry order. Use remove() first to update and change order.
 > map.get('dogs'); // Get the value for a key
 3
 > map.head(); // Get the first value in the linked list
@@ -59,6 +60,8 @@ cats = 4
 1
 > map.pop(); // Get and remove the last value in the linked list
 4
+> map.remove('dogs'); // Remove the entry for the specified key and return the value.
+3
 > map.clear(); // Remove all entries
 ```
 
@@ -71,7 +74,7 @@ Please see source code and unit tests for more details.
 ## Contributing
 
 Project source code is hosted on bitbucket: 
-https://bitbucket.org/troykinsella/linked-map
+[https://bitbucket.org/troykinsella/linked-map]()]https://bitbucket.org/troykinsella/linked-map)
 
 Git repository:
 git@bitbucket.org:troykinsella/linked-map.git
@@ -81,7 +84,7 @@ Feel free to submit pull requests!
 ### Reporting issues
 
 Browse existing issues, and submit new issues here:
-https://bitbucket.org/troykinsella/linked-map/issues
+[https://bitbucket.org/troykinsella/linked-map/issues](https://bitbucket.org/troykinsella/linked-map/issues)
 
 ### Testing
 
