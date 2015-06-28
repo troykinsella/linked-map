@@ -71,17 +71,17 @@ Please see source code and unit tests for more details.
 ## Contributing
 
 Project source code is hosted on bitbucket: 
-[home]([home-url])
+[https://bitbucket.org/troykinsella/linked-map]
 
 Git repository:
-[scm]([scm-url])
+[git@bitbucket.org:troykinsella/linked-map.git]
 
 Feel free to submit pull requests!
 
 ### Reporting issues
 
 Browse existing issues, and submit new issues here:
-[issues-url]([issues-url])
+[https://bitbucket.org/troykinsella/linked-map/issues]
 
 ### Testing
 
@@ -101,8 +101,5 @@ gulp test
 
 MIT © [Troy Kinsella]()
 
-[issues-url]: https://bitbucket.org/troykinsella/linked-map/issues
-[scm-url]: git@bitbucket.org:troykinsella/linked-map.git
-[home-url]: https://bitbucket.org/troykinsella/linked-map
 [npm-image]: https://badge.fury.io/js/linked-map.svg
 [npm-url]: https://npmjs.org/package/linked-map
