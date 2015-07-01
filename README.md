@@ -1,7 +1,8 @@
 # linked-map [![NPM version][npm-image]][npm-url]
 > A linked map data structure for ordered iteration and fast random access.
 
-
+[![NPM](https://nodei.co/npm/linked-map.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/linked-map/)
+[![NPM](https://nodei.co/npm-dl/linked-map.png?months=6&height=3)](https://nodei.co/npm/linked-map/)
 
 ## Install
 
