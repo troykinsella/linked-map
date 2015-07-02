@@ -98,7 +98,6 @@ gulp test
 
 * Minified vanilla JavaScript distributable
 * Publish to bower
-* Reverse iteration
 * Performance metrics
 
 ## License

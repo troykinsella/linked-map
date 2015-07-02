@@ -1,4 +1,5 @@
 var assert = require('assert');
+var fs = require('fs');
 var LinkedMap = require('../lib/linked-map');
 
 describe('linked-map', function() {
@@ -12,6 +13,20 @@ describe('linked-map', function() {
     assert.strictEqual(null, lm.tail());
     assert.deepEqual([], lm.keys());
     assert.deepEqual([], lm.values());
+  });
+
+  it('should export in a non-node environment', function() {
+    // TODO: is there a way to write this such that it will be picked up by the coverage report?
+
+    var jsPath = require.resolve('../lib/linked-map');
+    var js = fs.readFileSync(jsPath, 'utf-8');
+    var fn = new Function(js);
+    var root = {};
+    fn.call(root);
+
+    var lm = new root.LinkedMap();
+    lm.push('key', 'value');
+    assert.strictEqual('value', lm.remove('key'));
   });
 
   describe('#size', function() {
@@ -104,11 +119,27 @@ describe('linked-map', function() {
 
   describe('#unshift', function() {
 
-    it('should add elements to the head', function() {
+    it('should add one element to the head', function() {
+      var lm = new LinkedMap();
+      lm.unshift('key', 'value');
+      assert.strictEqual('key', lm.headKey());
+      assert.strictEqual('key', lm.tailKey());
+    });
+
+    it('should add two elements to the head', function() {
       var lm = new LinkedMap();
       lm.unshift('key', 'value');
       lm.unshift('key2', 'value2');
       assert.strictEqual('key2', lm.headKey());
+      assert.strictEqual('key', lm.tailKey());
+    });
+
+    it('should add three elements to the head', function() {
+      var lm = new LinkedMap();
+      lm.unshift('key', 'value');
+      lm.unshift('key2', 'value2');
+      lm.unshift('key3', 'value3');
+      assert.strictEqual('key3', lm.headKey());
       assert.strictEqual('key', lm.tailKey());
     });
 
@@ -127,12 +158,28 @@ describe('linked-map', function() {
 
   describe('#push', function() {
 
-    it('should add elements to the tail', function() {
+    it('should add one element to the tail', function() {
+      var lm = new LinkedMap();
+      lm.push('key', 'value');
+      assert.strictEqual('key', lm.headKey());
+      assert.strictEqual('key', lm.tailKey());
+    });
+
+    it('should add two elements to the tail', function() {
       var lm = new LinkedMap();
       lm.push('key', 'value');
       lm.push('key2', 'value2');
       assert.strictEqual('key', lm.headKey());
       assert.strictEqual('key2', lm.tailKey());
+    });
+
+    it('should add three elements to the tail', function() {
+      var lm = new LinkedMap();
+      lm.push('key', 'value');
+      lm.push('key2', 'value2');
+      lm.push('key3', 'value3');
+      assert.strictEqual('key', lm.headKey());
+      assert.strictEqual('key3', lm.tailKey());
     });
 
     it('should replace duplicates', function() {
@@ -203,18 +250,74 @@ describe('linked-map', function() {
       assert.strictEqual(null, lm.remove('key'));
       assert.strictEqual(null, lm.remove('key3'));
     });
+
+    it('should remove one element', function() {
+      var lm = new LinkedMap();
+      lm.push('key', 'value');
+      assert.strictEqual('value', lm.remove('key'));
+      assert.equal(0, lm.size());
+    });
+
+    it('should remove the head when two elements', function() {
+      var lm = new LinkedMap();
+      lm.push('key', 'value');
+      lm.push('key2', 'value2');
+      assert.strictEqual('value', lm.remove('key'));
+      assert.equal(1, lm.size());
+    });
+
+    it('should remove the head when three elements', function() {
+      var lm = new LinkedMap();
+      lm.push('key', 'value');
+      lm.push('key2', 'value2');
+      lm.push('key3', 'value2');
+      assert.strictEqual('value', lm.remove('key'));
+      assert.equal(2, lm.size());
+    });
+
+    it('should remove the tail when two elements', function() {
+      var lm = new LinkedMap();
+      lm.push('key', 'value');
+      lm.push('key2', 'value2');
+      assert.strictEqual('value2', lm.remove('key2'));
+      assert.equal(1, lm.size());
+    });
+
+    it('should remove the tail when three elements', function() {
+      var lm = new LinkedMap();
+      lm.push('key', 'value');
+      lm.push('key2', 'value2');
+      lm.push('key3', 'value3');
+      assert.strictEqual('value3', lm.remove('key3'));
+      assert.equal(2, lm.size());
+    });
   });
 
   describe('#each', function() {
 
-    it('should not call the callback when empty', function() {
+    it('should call the callback with the supplied context', function() {
+      var lm = new LinkedMap();
+      lm.push('key', 'value');
+
+      var ctx = {
+        foo: false
+      };
+
+      lm.each(function(key, value) {
+        this.foo = value;
+      }, ctx);
+
+      assert.strictEqual('value', ctx.foo);
+    });
+
+    it('should not call the callback when empty during forward iteration', function() {
       var lm = new LinkedMap();
       lm.each(function() {
         assert.fail();
       });
     });
 
-    it('should iterate existing elements', function() {
+    it('should forward iterate existing elements', function() {
       var lm = new LinkedMap();
       lm.push('key1', 'value1');
       lm.push('key2', 'value2');
@@ -228,7 +331,7 @@ describe('linked-map', function() {
       });
     });
 
-    it('should break when false returned', function() {
+    it('should break when false returned during forward iteration', function() {
       var lm = new LinkedMap();
       lm.push('key1', 'value1');
       lm.push('key2', 'value2');
@@ -245,6 +348,43 @@ describe('linked-map', function() {
       assert.strictEqual(2, i);
     });
 
+    it('should not call the callback when empty during reverse iteration', function() {
+      var lm = new LinkedMap();
+      lm.each(true, function() {
+        assert.fail();
+      });
+    });
+
+    it('should reverse iterate existing elements', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      lm.push('key2', 'value2');
+      lm.push('key3', 'value3');
+
+      var i = 3;
+      lm.each(true, function(key, value) {
+        assert.strictEqual('key' + i, key);
+        assert.strictEqual('value' + i, value);
+        i--;
+      });
+    });
+
+    it('should break when false returned during reverse iteration', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      lm.push('key2', 'value2');
+      lm.push('key3', 'value3');
+
+      var i = 3;
+      lm.each(function(key, value) {
+        if (i == 2) {
+          return false;
+        }
+        i--;
+      });
+
+      assert.strictEqual(2, i);
+    });
   });
 
   describe('#clear', function() {
@@ -434,5 +574,29 @@ describe('linked-map', function() {
 
   });
 
+  describe("#toObject", function() {
+
+    it('should return an empty object when empty', function() {
+      var lm = new LinkedMap();
+      assert.deepEqual({}, lm.toObject());
+    });
+
+    it('should return an object containing existing entries', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      lm.push('key2', 'value2');
+      assert.deepEqual({ key1: 'value1', key2: 'value2' }, lm.toObject());
+    });
+  });
+
+  describe("#toString", function() {
+
+    it('should return a string representation', function() {
+      var lm = new LinkedMap();
+      lm.push('key1', 'value1');
+      assert.equal('LinkedMap[size=1]', lm.toString());
+    });
+
+  });
 });
 
