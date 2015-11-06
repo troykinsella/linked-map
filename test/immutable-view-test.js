@@ -1,10 +1,11 @@
+"use strict";
+
 var assert = require('assert');
-var fs = require('fs');
 var LinkedMap = require('../lib/linked-map');
 
 describe('immutable-view', function() {
 
-  it('should have a predictable initialized state', function () {
+  it('should have a predictable initialized state', function() {
     var lm = new LinkedMap();
     var v = lm.immutableView();
     assert.strictEqual(0, v.size());

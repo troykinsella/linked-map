@@ -1,3 +1,5 @@
+"use strict";
+
 var assert = require('assert');
 var fs = require('fs');
 var LinkedMap = require('../lib/linked-map');
@@ -416,7 +418,7 @@ describe('linked-map', function() {
       lm.unshift('key1', 'value1');
       lm.push('key3', 'value3');
 
-      assert.deepEqual([ 'key1', 'key2', 'key3'], lm.keys());
+      assert.deepEqual(['key1', 'key2', 'key3'], lm.keys());
     });
 
   });
@@ -429,7 +431,7 @@ describe('linked-map', function() {
       lm.unshift('key1', 'value1');
       lm.push('key3', 'value3');
 
-      assert.deepEqual([ 'value1', 'value2', 'value3'], lm.values());
+      assert.deepEqual(['value1', 'value2', 'value3'], lm.values());
     });
 
   });
