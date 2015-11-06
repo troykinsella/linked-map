@@ -1,8 +1,9 @@
-# linked-map [![NPM version][npm-image]][npm-url]
+# linked-map
 > A linked map data structure for ordered iteration and fast random access.
 
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
+
 [![NPM](https://nodei.co/npm/linked-map.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/linked-map/)
-[![NPM](https://nodei.co/npm-dl/linked-map.png?months=6&height=3)](https://nodei.co/npm/linked-map/)
 
 ## Install
 
@@ -106,3 +107,5 @@ MIT © [Troy Kinsella]()
 
 [npm-image]: https://badge.fury.io/js/linked-map.svg
 [npm-url]: https://npmjs.org/package/linked-map
+[travis-image]: https://travis-ci.org/troykinsella/linked-map.svg?branch=master
+[travis-url]: https://travis-ci.org/troykinsella/linked-map

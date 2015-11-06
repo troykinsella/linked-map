@@ -2,7 +2,7 @@
   "name": "linked-map",
   "version": "2.2.1",
   "description": "A linked map data structure",
-  "homepage": "https://bitbucket.org/troykinsella/linked-map",
+  "homepage": "https://github.com/troykinsella/linked-map",
   "author": {
     "name": "Troy Kinsella"
   },
@@ -32,8 +32,12 @@
     "gulp-plumber": "^1.0.0",
     "jshint-stylish": "^1.0.0"
   },
-  "scripts": {
-    "test": "gulp"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:troykinsella/linked-map.git"
   },
-  "license": "MIT"
+  "scripts": {
+    "test": "gulp test"
+  }
 }
