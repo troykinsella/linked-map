@@ -1,0 +1,29 @@
+{
+  "name": "linked-map",
+  "description": "A linked map data structure",
+  "main": "./lib/linked-map.js",
+  "authors": [
+    "Troy Kinsella"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "map",
+    "linked",
+    "list",
+    "list",
+    "queue",
+    "stack",
+    "collection",
+    "structure"
+  ],
+  "homepage": "https://github.com/troykinsella/linked-map",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ]
+}

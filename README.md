@@ -1,7 +1,7 @@
 # linked-map
 > A linked map data structure for ordered iteration and fast random access.
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
+[![NPM version][npm-image]][npm-url] [![Bower version][bower-image]][bower-url] [![Build Status][travis-image]][travis-url]
 
 [![NPM](https://nodei.co/npm/linked-map.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/linked-map/)
 
@@ -98,7 +98,6 @@ gulp test
 ## Roadmap
 
 * Minified vanilla JavaScript distributable
-* Publish to bower
 * Performance metrics
 
 ## License
@@ -107,5 +106,8 @@ MIT © [Troy Kinsella]()
 
 [npm-image]: https://badge.fury.io/js/linked-map.svg
 [npm-url]: https://npmjs.org/package/linked-map
+[bower-image]: https://badge.fury.io/bo/linked-map.svg
+[bower-url]: https://github.com/troykinsella/linked-map
 [travis-image]: https://travis-ci.org/troykinsella/linked-map.svg?branch=master
 [travis-url]: https://travis-ci.org/troykinsella/linked-map
+
