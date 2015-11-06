@@ -13,7 +13,13 @@
 $ npm install --save linked-map
 ```
 
-### Vanilla JavaScript
+### Bower
+
+```sh
+$ bower install --save linked-map
+```
+
+### Manual
 
 Copy the distribution linked-map.js file into your project files, and include it as per usual:
 ```html
@@ -24,6 +30,7 @@ Copy the distribution linked-map.js file into your project files, and include it
 
 ```js
 > var LinkedMap = require('linked-map'); // Node.js
+// window.LinkedMap is published in the browser
 
 > var map = new LinkedMap();
 > map.unshift('dogs', 2); // Add an entry to the front of the linked list
